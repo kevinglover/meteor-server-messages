@@ -15,6 +15,7 @@ publishMethods = {
    * @returns {any|Cursor}
    */
   'ServerMessages/publishMessages': function (instanceName) {
+    check([instanceName], [Match.Any]);
     var timestamp = (new Date().getTime()) - Internals.constants.MAX_TIMESTAMP_AGE;
 
     return Internals.collection.find({
@@ -25,6 +26,7 @@ publishMethods = {
 };
 
 _.each(publishMethods, function (fn, name) {
+  check([fn, name], [Match.Any]);
   Meteor.publish(name, fn);
 });
 
