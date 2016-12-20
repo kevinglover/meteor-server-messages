@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'gfk:server-messages',
+  name: 'my:server-messages',
   version: '1.1.0',
   summary: 'Add server to client mediator',
-  git: 'git@github.com:gfk-ba/meteor-server-messages.git',
+  git: 'git@github.com:kevinglover/meteor-server-messages.git',
   documentation: 'README.md'
 });
 
@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
 
   api.use([
+    'check',
     'mongo',
     'underscore'
   ]);
@@ -40,6 +41,7 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use([
+    'check',
     'underscore',
     'gfk:server-messages',
     'mike:mocha-package@0.5.8',
